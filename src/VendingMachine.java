@@ -1,25 +1,28 @@
-import Exeptions.ChocolatesAllGone;
-import Exeptions.ProductNotFoundException;
-import Exeptions.SaltyCracksAllEatenException;
-import Exeptions.SoftDrinksOutOfStockException;
+import Exeptions.*;
+import Products.Chocolates;
 import Products.Product;
+import Products.SaltySnacks;
+import Products.SoftDrinks;
 
 public class VendingMachine {
     public int stockCount = 0;
 
-    public void buy(Product product) throws ProductNotFoundException {
-        if(stockCount <= 0){
-            if(product.equals(new ChocolatesAllGone())){
-                throw new ChocolatesAllGone();
-            }
-            else if (product.equals(new SaltyCracksAllEatenException())){
-                throw new SaltyCracksAllEatenException();
-            }
-            else if(product.equals(new SoftDrinksOutOfStockException())){
-                throw new SoftDrinksOutOfStockException();
+    public void buy(Product product) throws ProductNotFoundException, InvalidProductException {
+        if (product instanceof Product) {
+            if (stockCount <= 0) {
+
+                if (product instanceof Chocolates) {
+                    throw new ChocolatesAllGone();
+                } else if (product instanceof SaltySnacks) {
+                    throw new SaltyCracksAllBoughtException();
+                } else if (product instanceof SoftDrinks) {
+                    throw new SoftDrinksOutOfStockException();
+                }
+            } else {
+                stockCount--;
             }
         }else {
-            stockCount--;
+            throw new InvalidProductException();
         }
     }
 

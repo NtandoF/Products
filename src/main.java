@@ -7,22 +7,29 @@ public class main {
 
 
             VendingMachine product = new VendingMachine();
-
-            Chocolates slab = new Chocolates("Hole Nut");
-            product.addStock(slab, 2);
-            product.buy(slab);
-            System.out.println(product.getStock());
-
-            //SoftDrinks
-            SoftDrinks Fanta = new SoftDrinks("Fanta Grape");
-            product.addStock(Fanta, 1);
-            product.buy(Fanta);
-            System.out.println(product.getStock());
+//
+//            Chocolates slab = new Chocolates("Hole Nut");
+//            product.addStock(slab, 2);
+//            product.buy(slab);
+//            product.buy(slab);
+//            product.buy(slab);
+//
+//            System.out.println(product.getStock());
+//
+//            //SoftDrinks
+//            SoftDrinks Fanta = new SoftDrinks("Fanta Grape");
+//            product.addStock(Fanta, 3);
+//            product.buy(Fanta);
+//            product.buy(Fanta);
+//            product.buy(Fanta);
+//            product.buy(Fanta);
+//            System.out.println(product.getStock());
 
             //Salty Snacks
             SaltySnacks snack = new SaltySnacks("popcorn");
             product.addStock(snack, 2);
-            product.buy(snack);
+
+            product.buy(null);
             System.out.println(product.getStock());
         }
 
