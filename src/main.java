@@ -4,10 +4,10 @@ import exeptions.SoftDrinksOutOfStockException;
 import products.Chocolates;
 import products.SaltySnacks;
 import products.SoftDrinks;
+import vendingMachines.VendingMachine;
 
 public class main {
     public static void main(String[] args) {
-
 
             VendingMachine product = new VendingMachine();
             try {
@@ -38,7 +38,6 @@ public class main {
                 //Salty Snacks
                 SaltySnacks snack = new SaltySnacks("popcorn");
                 product.addStock(snack, 0);
-                product.buy(snack);
                 product.buy(snack);
                 product.buy(snack);
                 System.out.println(product.getSaltySnacksCount());

@@ -1,3 +1,5 @@
+package vendingMachines;
+
 import exeptions.*;
 import products.Chocolates;
 import products.Product;
@@ -15,8 +17,8 @@ public class VendingMachine {
         this.softdrinkCount = softdrinkCount;
     }
 
-    VendingMachine(){
-        this(5,4,5);
+    public VendingMachine(){
+        this(10,4,5);
     }
 
     public int getChocolateCount(){
@@ -33,31 +35,8 @@ public class VendingMachine {
 
     public void buy(Product product) throws ProductNotFoundException, InvalidProductException {
         if (product instanceof Product){
-            if (product instanceof Chocolates) {
-                if (chocolateCount <= 0) {
-                    throw new ChocolatesAllGone();
-                } else {
-                    chocolateCount--;
-                }
-            }
-            if (product instanceof SaltySnacks) {
-                if (saltySnacksCount <= 0) {
-                    throw new SaltyCracksAllBoughtException();
-                } else {
-                    saltySnacksCount--;
-                }
-            }
-            if (product instanceof SoftDrinks) {
-                if (softdrinkCount <= 0) {
-                    throw new SoftDrinksOutOfStockException();
-                } else {
-                    softdrinkCount--;
-                }
-            }
-        } else {
             throw new InvalidProductException();
         }
-
     }
 
     public void addStock(Product product, int newStock) {
