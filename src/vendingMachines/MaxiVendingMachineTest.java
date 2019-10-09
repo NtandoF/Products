@@ -14,7 +14,7 @@ public class MaxiVendingMachineTest {
     public void shouldReturnTheCorrectNumberOfSoftDrinks() {
         MaxiVendingMachine softdrink = new MaxiVendingMachine();
         SoftDrinks coka = new SoftDrinks("Lite Coka");
-        softdrink.addStock(coka , 0);
+        softdrink.addStock(coka);
         softdrink.buy(coka);
 
         assertEquals(4 , softdrink.getSoftDrinkCount());
@@ -24,7 +24,7 @@ public class MaxiVendingMachineTest {
     public void shouldReturnTheCorrectNumberOfChocolates() {
         MaxiVendingMachine chocolates = new MaxiVendingMachine();
         Chocolates slab = new Chocolates("Hole Nut");
-        chocolates.addStock(slab , 0);
+        chocolates.addStock(slab);
         chocolates.buy(slab);
 
         assertEquals(9 , chocolates.getChocolateCount());
@@ -33,7 +33,7 @@ public class MaxiVendingMachineTest {
     public void shouldReturnTheCorrectNumberOfSaltySnacks() {
         MaxiVendingMachine saltysnacks = new MaxiVendingMachine();
         SaltySnacks worms = new SaltySnacks("salty worms");
-        saltysnacks.addStock(worms , 0);
+        saltysnacks.addStock(worms);
         saltysnacks.buy(worms);
 
         assertEquals(3 , saltysnacks.getSaltySnacksCount());
