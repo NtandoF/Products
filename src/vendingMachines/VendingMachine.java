@@ -35,17 +35,13 @@ public class VendingMachine {
 
     public void buy(Product product) throws ProductNotFoundException, InvalidProductException {
         if (product instanceof Product){
-            throw new InvalidProductException();
+            throw new ProductNotFoundException();
         }
     }
 
-    public void addStock(Product product, int newStock) {
-        if(product instanceof Chocolates){
-            chocolateCount += newStock;
-        } else if (product instanceof SoftDrinks){
-            softdrinkCount += newStock;
-        }else if (product instanceof SaltySnacks){
-            saltySnacksCount += newStock;
+    public void addStock(Product product, int newStock) throws InvalidProductException {
+        if(product instanceof Product){
+            throw new InvalidProductException();
         }
     }
     public int getStock() {
