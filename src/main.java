@@ -4,20 +4,23 @@ import exeptions.SoftDrinksOutOfStockException;
 import products.Chocolates;
 import products.SaltySnacks;
 import products.SoftDrinks;
+import vendingMachines.MaxiVendingMachine;
 import vendingMachines.VendingMachine;
 
 public class main {
     public static void main(String[] args) {
 
-            VendingMachine product = new VendingMachine();
+        MaxiVendingMachine chocolates = new MaxiVendingMachine();
+        MaxiVendingMachine softdrinks = new MaxiVendingMachine();
+        MaxiVendingMachine saltySnack = new MaxiVendingMachine();
             try {
                 //chocolates
                 Chocolates slab = new Chocolates("Hole Nut");
-                product.addStock(slab, 0);
-                product.buy(slab);
-                product.buy(slab);
-                product.buy(slab);
-                System.out.println(product.getChocolateCount());
+                chocolates.addStock(slab, 0);
+                chocolates.buy(slab);
+                chocolates.buy(slab);
+                chocolates.buy(slab);
+                System.out.println(chocolates.getChocolateCount());
 
             }catch (ChocolatesAllGone choco){
                choco.show();
@@ -26,10 +29,10 @@ public class main {
             try {
                 //SoftDrinks
                 SoftDrinks fanta = new SoftDrinks("Fanta Grape");
-                product.addStock(fanta, 0);
-                product.buy(fanta);
-                product.buy(fanta);
-                System.out.println(product.getSoftDrinkCount());
+                softdrinks.addStock(fanta, 0);
+                softdrinks.buy(fanta);
+                softdrinks.buy(fanta);
+                System.out.println(softdrinks.getSoftDrinkCount());
             } catch (SoftDrinksOutOfStockException soft){
                 soft.show();
             }
@@ -37,10 +40,10 @@ public class main {
             try {
                 //Salty Snacks
                 SaltySnacks snack = new SaltySnacks("popcorn");
-                product.addStock(snack, 0);
-                product.buy(snack);
-                product.buy(snack);
-                System.out.println(product.getSaltySnacksCount());
+                saltySnack.addStock(snack, 0);
+                saltySnack.buy(snack);
+                saltySnack.buy(snack);
+                System.out.println(saltySnack.getSaltySnacksCount());
             }catch (SaltyCracksAllBoughtException salty){
                salty.show();
             }
