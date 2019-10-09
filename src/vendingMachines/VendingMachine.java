@@ -18,7 +18,7 @@ public class VendingMachine {
     }
 
     public VendingMachine(){
-        this(10,4,5);
+        this(6,4,5);
     }
 
     public int getChocolateCount(){

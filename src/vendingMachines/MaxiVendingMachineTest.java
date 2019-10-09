@@ -1,11 +1,15 @@
 package vendingMachines;
 
+import exeptions.ChocolatesAllGone;
+import exeptions.SaltyCracksAllBoughtException;
+import exeptions.SoftDrinksOutOfStockException;
 import org.junit.jupiter.api.Test;
 import products.Chocolates;
 import products.SaltySnacks;
 import products.SoftDrinks;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 public class MaxiVendingMachineTest {
 
@@ -27,7 +31,7 @@ public class MaxiVendingMachineTest {
         chocolates.addStock(slab);
         chocolates.buy(slab);
 
-        assertEquals(9 , chocolates.getChocolateCount());
+        assertEquals(5 , chocolates.getChocolateCount());
     }
     @Test
     public void shouldReturnTheCorrectNumberOfSaltySnacks() {
@@ -43,7 +47,46 @@ public class MaxiVendingMachineTest {
     public void shouldReturnTheCorrectNumberOfAllProducts() {
         MaxiVendingMachine Allproducts = new MaxiVendingMachine();
 
-        assertEquals(19 , Allproducts.getStock());
+        assertEquals(15 , Allproducts.getStock());
+    }
+    @Test
+    public void shouldThrowSaltyCracksAllBoughtException() {
+        MaxiVendingMachine saltyException = new MaxiVendingMachine();
+        SaltySnacks salty = new SaltySnacks("salty salty");
+        saltyException.addStock(salty);
+        saltyException.buy(salty);
+        saltyException.buy(salty);
+        saltyException.buy(salty);
+        saltyException.buy(salty);
+        assertThrows(SaltyCracksAllBoughtException.class,
+                () -> saltyException.buy(salty));
+    }
+    @Test
+    public void shouldThrowSoftDrinksOutOfStockException() {
+        MaxiVendingMachine softDrinkException = new MaxiVendingMachine();
+        SoftDrinks cokaCola = new SoftDrinks("Ice Cold Coca");
+        softDrinkException.addStock(cokaCola);
+        softDrinkException.buy(cokaCola);
+        softDrinkException.buy(cokaCola);
+        softDrinkException.buy(cokaCola);
+        softDrinkException.buy(cokaCola);
+        softDrinkException.buy(cokaCola);
+        assertThrows(SoftDrinksOutOfStockException.class,
+                () -> softDrinkException.buy(cokaCola));
+    }
+    @Test
+    public void shouldThrowChocolatesAllGone() {
+        MaxiVendingMachine chocolateException = new MaxiVendingMachine();
+        Chocolates slab = new Chocolates("Hole Nut");
+        chocolateException.addStock(slab);
+        chocolateException.buy(slab);
+        chocolateException.buy(slab);
+        chocolateException.buy(slab);
+        chocolateException.buy(slab);
+        chocolateException.buy(slab);
+        chocolateException.buy(slab);
+        assertThrows(ChocolatesAllGone.class,
+                () -> chocolateException.buy(slab));
     }
 
 }

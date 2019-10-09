@@ -37,18 +37,14 @@ public class MaxiVendingMachine extends VendingMachine {
     }
 
     public void addStock(Chocolates chocolates) {
-        if (chocolates instanceof Chocolates) {
             chocolateCount += newStock;
         }
-    }
+
     public void addStock (SoftDrinks softdrink) {
-            if (softdrink instanceof SoftDrinks) {
-                chocolateCount += newStock;
-            }
-        }
+           chocolateCount += newStock;
+       }
+
     public void addStock (SaltySnacks saltySnacks) {
-        if (saltySnacks instanceof SaltySnacks) {
-            saltySnacksCount += newStock;
-         }
+          saltySnacksCount += newStock;
        }
     }
